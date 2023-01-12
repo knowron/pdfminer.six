@@ -758,6 +758,8 @@ class LTLayoutContainer(LTContainer[LTComponent]):
         obj0 = None
         line = None
         for obj1 in objs:
+            if obj1.get_text().isspace():
+                continue
             if obj0 is not None:
                 # halign: obj0 and obj1 is horizontally aligned.
                 #
