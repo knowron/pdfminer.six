@@ -827,10 +827,11 @@ class LTLayoutContainer(LTContainer[LTComponent]):
                         yield line
                         line = None
             obj0 = obj1
-        if line is None and obj0 is not None:
+        if line is None:
             line = LTTextLineHorizontal(laparams.word_margin)
-            line.add(obj0)
-            yield line
+            if obj0 is not None:
+                line.add(obj0)
+        yield line
         return
 
     def group_textlines(
