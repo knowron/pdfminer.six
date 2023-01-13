@@ -827,9 +827,8 @@ class LTLayoutContainer(LTContainer[LTComponent]):
                         yield line
                         line = None
             obj0 = obj1
-        if line is None:
+        if line is None and obj0 is not None:
             line = LTTextLineHorizontal(laparams.word_margin)
-            assert obj0 is not None
             line.add(obj0)
         yield line
         return
